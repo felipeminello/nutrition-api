@@ -4,6 +4,7 @@ import { Document, Schema, model } from 'mongoose'
 export interface IFood extends Document<Food> {
   name: string
   unit: string
+  quantity: number
   carbs: number
   protein: number
   fat: number
@@ -15,6 +16,7 @@ export interface IFood extends Document<Food> {
 const foodSchema = new Schema<IFood>({
   name: { type: String, required: true },
   unit: { type: String, required: true },
+  quantity: { type: Number, required: true },
   carbs: { type: Number, required: true },
   protein: { type: Number, required: true },
   fat: { type: Number, required: true },

@@ -1,6 +1,7 @@
 export interface InputCreateFoodDTO {
   name: string
   unit?: string
+  quantity?: number
   carbs: number
   protein: number
   fat: number

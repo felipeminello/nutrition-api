@@ -15,6 +15,7 @@ export default class FoodRepository implements FoodRepositoryInterface {
     const food = await this.foodSchema.create({
       name: input.name,
       unit: input.unit,
+      quantity: input.quantity,
       carbs: input.carbs,
       protein: input.protein,
       fat: input.fat,
@@ -31,6 +32,7 @@ export default class FoodRepository implements FoodRepositoryInterface {
       $set: {
         name: input.name,
         unit: input.unit,
+        quantity: input.quantity,
         carbs: input.carbs,
         protein: input.protein,
         fat: input.fat,
@@ -46,12 +48,12 @@ export default class FoodRepository implements FoodRepositoryInterface {
       throw new Error('Food not found')
     }
 
-    return FoodFactory.create(food.id, food.name, food.unit, food.carbs, food.protein, food.fat, food.calories, food.createdAt, food.updatedAt)
+    return FoodFactory.create(food.id, food.name, food.unit, food.quantity, food.carbs, food.protein, food.fat, food.calories, food.createdAt, food.updatedAt)
   }
 
   async findAll(): Promise<Food[]> {
     const foods = await this.foodSchema.find()
 
-    return foods.map(food => FoodFactory.create(food.id, food.name, food.unit, food.carbs, food.protein, food.fat, food.calories, food.createdAt, food.updatedAt))
+    return foods.map(food => FoodFactory.create(food.id, food.name, food.unit, food.quantity, food.carbs, food.protein, food.fat, food.calories, food.createdAt, food.updatedAt))
   }
 }

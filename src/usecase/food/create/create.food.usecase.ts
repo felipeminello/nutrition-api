@@ -10,18 +10,23 @@ export default class FoodCreateUseCase {
   }
 
   async execute(input: InputCreateFoodDTO): Promise<OutputCreateFoodDTO> {
-    let { unit } = input
+    let { unit, quantity } = input
 
     if (!unit) {
-      unit = '100g'
+      unit = 'g'
     }
 
-    const foodFactory = FoodFactory.create(null, input.name, unit, input.carbs, input.protein, input.fat, input.calories)
+    if (!quantity) {
+      quantity = 100
+    }
+
+    const foodFactory = FoodFactory.create(null, input.name, unit, quantity, input.carbs, input.protein, input.fat, input.calories)
     const foodId = await this.foodRepository.create(foodFactory)
 
     return {
       id: foodId,
       unit,
+      quantity,
       ...input,
     }
   }

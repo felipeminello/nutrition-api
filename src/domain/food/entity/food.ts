@@ -4,6 +4,7 @@ export default class Food implements FoodInterface {
   public id: string | null
   public name: string
   public unit: string
+  public quantity: number
   public carbs: number
   public protein: number
   public fat: number
@@ -11,10 +12,11 @@ export default class Food implements FoodInterface {
   public createdAt: Date
   public updatedAt: Date
 
-  constructor(id: string | null, name: string, unit: string, carbs: number, protein: number, fat: number, calories: number, createdAt: Date, updatedAt: Date) {
+  constructor(id: string | null, name: string, unit: string, quantity: number, carbs: number, protein: number, fat: number, calories: number, createdAt: Date, updatedAt: Date) {
     this.id = id
     this.name = name
     this.unit = unit
+    this.quantity = quantity
     this.carbs = carbs
     this.protein = protein
     this.fat = fat
