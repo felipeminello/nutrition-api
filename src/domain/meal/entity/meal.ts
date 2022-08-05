@@ -19,6 +19,6 @@ export default class Meal implements MealInterface {
   }
 
   public totalCalories(): number {
-    return this.items.reduce((acc, item) => acc + (item.quantity * item.food.calories), 0)
+    return this.items.reduce((acc, item) => acc + (item.quantity * item.calories), 0)
   }
 }
