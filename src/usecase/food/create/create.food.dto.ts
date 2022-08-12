@@ -2,10 +2,16 @@ export interface InputCreateFoodDTO {
   name: string
   unit?: string
   quantity?: number
-  carbs: number
+  calories: number
   protein: number
   fat: number
-  calories: number
+  carbs: number
+  fiber: number
+  chol: number
+  ashes: number
+  calcium: number
+  magnesium: number
+  humidity: number
 }
 
 export interface OutputCreateFoodDTO extends InputCreateFoodDTO {

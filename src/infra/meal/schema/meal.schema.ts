@@ -1,7 +1,7 @@
-import { Schema, model, Types } from 'mongoose'
+import { Schema, model } from 'mongoose'
 
 export interface IMealItems {
-  foodId: Types.ObjectId
+  foodId: string
   food: string
   quantity: number
   calories: number
@@ -9,12 +9,13 @@ export interface IMealItems {
 
 export interface IMeal {
   name: string
+  dayOfWeek: number
   order: number
   items: IMealItems[]
 }
 
-const mealItemsSchema = new Schema<IMealItems>({
-  foodId: {type: Schema.Types.ObjectId, ref: 'Food', required: true },
+const mealItemsSchema = new Schema({
+  foodId: { type: Schema.Types.ObjectId, ref: 'Food', required: true },
   food: { type: String, required: true },
   quantity: { type: Number, required: true },
   calories: { type: Number, required: true }
@@ -25,6 +26,8 @@ const mealItemsSchema = new Schema<IMealItems>({
 
 const mealSchema = new Schema<IMeal>({
   name: { type: String, required: true },
+  dayOfWeek: { type: Number, required: true },
+  order: { type: Number, required: true },
   items: [mealItemsSchema],
 }, {
   timestamps: true,

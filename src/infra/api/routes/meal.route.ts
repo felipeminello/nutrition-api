@@ -11,6 +11,7 @@ mealRouter.post('/', async (req: Request, res: Response) => {
   try {
     const mealDto = {
       name: req.body.name,
+      dayOfWeek: req.body.dayOfWeek,
       order: req.body.order,
       items: req.body.items
     }

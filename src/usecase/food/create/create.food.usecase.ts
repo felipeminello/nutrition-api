@@ -20,7 +20,7 @@ export default class FoodCreateUseCase {
       quantity = 100
     }
 
-    const foodFactory = FoodFactory.create(null, input.name, unit, quantity, input.carbs, input.protein, input.fat, input.calories)
+    const foodFactory = FoodFactory.create(null, input.name, unit, quantity, input.calories, input.protein, input.fat, input.carbs, input.fiber, input.chol, input.ashes, input.calcium, input.magnesium, input.humidity)
     const foodId = await this.foodRepository.create(foodFactory)
 
     return {

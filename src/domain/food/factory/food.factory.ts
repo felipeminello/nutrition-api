@@ -6,17 +6,23 @@ export default class FoodFactory {
     name: string,
     unit: string,
     quantity: number,
-    carbs: number,
+    calories: number,
     protein: number,
     fat: number,
-    calories: number,
+    carbs: number,
+    fiber: number,
+    chol: number,
+    ashes: number,
+    calcium: number,
+    magnesium: number,
+    humidity: number,
     createdAt?: Date,
     updatedAt?: Date
   ): Food {
     const now = new Date()
     createdAt = createdAt || now
     updatedAt = updatedAt || now
-    
-    return new Food(id, name, unit, quantity, carbs, protein, fat, calories, createdAt, updatedAt)
+
+    return new Food(id, name, unit, quantity, calories, protein, fat, carbs, fiber, chol, ashes, calcium, magnesium, humidity, createdAt, updatedAt)
   }
 }

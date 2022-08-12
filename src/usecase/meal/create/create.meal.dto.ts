@@ -1,5 +1,6 @@
 export interface InputCreateMealDTO {
   name: string
+  dayOfWeek: number
   order: number
   items: {
     foodId: string
@@ -7,7 +8,7 @@ export interface InputCreateMealDTO {
   }[]
 }
 
-export interface OutputCreateMealDTO extends InputCreateMealDTO {
+export interface OutputCreateMealDTO extends Partial<InputCreateMealDTO> {
   id: string
   items: {
     foodId: string

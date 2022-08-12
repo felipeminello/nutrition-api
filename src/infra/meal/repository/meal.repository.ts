@@ -14,6 +14,7 @@ export default class MealRepository implements MealRepositoryInterface {
   async create(input: Meal): Promise<string> {
     const meal = await this.mealSchema.create({
       name: input.name,
+      dayOfWeek: input.dayOfWeek,
       order: input.order,
       items: input.items,
     })

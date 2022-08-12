@@ -16,10 +16,16 @@ export default class FoodRepository implements FoodRepositoryInterface {
       name: input.name,
       unit: input.unit,
       quantity: input.quantity,
-      carbs: input.carbs,
+      calories: input.calories,
       protein: input.protein,
       fat: input.fat,
-      calories: input.calories
+      carbs: input.carbs,
+      fiber: input.fiber,
+      chol: input.chol,
+      ashes: input.ashes,
+      calcium: input.calcium,
+      magnesium: input.magnesium,
+      humidity: input.humidity,
     })
 
     return `${food.id}`
@@ -48,12 +54,12 @@ export default class FoodRepository implements FoodRepositoryInterface {
       throw new Error('Food not found')
     }
 
-    return FoodFactory.create(food.id, food.name, food.unit, food.quantity, food.carbs, food.protein, food.fat, food.calories, food.createdAt, food.updatedAt)
+    return FoodFactory.create(food.id, food.name, food.unit, food.quantity, food.calories, food.protein, food.fat, food.carbs, food.fiber, food.chol, food.ashes, food.calcium, food.magnesium, food.humidity, food.createdAt, food.updatedAt)
   }
 
   async findAll(): Promise<Food[]> {
     const foods = await this.foodSchema.find()
 
-    return foods.map(food => FoodFactory.create(food.id, food.name, food.unit, food.quantity, food.carbs, food.protein, food.fat, food.calories, food.createdAt, food.updatedAt))
+    return foods.map(food => FoodFactory.create(food.id, food.name, food.unit, food.quantity, food.calories, food.protein, food.fat, food.carbs, food.fiber, food.chol, food.ashes, food.calcium, food.magnesium, food.humidity, food.createdAt, food.updatedAt))
   }
 }
