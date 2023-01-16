@@ -1,5 +1,5 @@
 {
-  "window.title": "Nutrition - API",
+  "window.title": "${dirty}${activeEditorShort}${separator}Nutrition ${separator} API ${separator}${appName}",
   "cSpell.words": [
     "chol",
     "pino",
