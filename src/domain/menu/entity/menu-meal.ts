@@ -1,6 +1,4 @@
-import MealInterface from '@/domain/meal/entity/meal.interface'
-
-export default class MenuMeal implements MealInterface {
+export default class MenuMeal {
   public mealId: string
   public name?: string
   public order: number
@@ -10,8 +8,4 @@ export default class MenuMeal implements MealInterface {
     this.name = name
     this.order = order
   }
-
-  totalCalories(): number {
-    throw new Error('Method not implemented.')
-  }
-} 
+}

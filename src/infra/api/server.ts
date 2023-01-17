@@ -10,7 +10,7 @@ enum ExitStatus {
 
 (async (): Promise<void> => {
   const port = Number(env.port)
-
+ 
   const logger = Logger.getInstance()
 
   try {

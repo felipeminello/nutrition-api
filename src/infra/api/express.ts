@@ -25,9 +25,6 @@ app.use('/api', router)
 app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
   let status = 500
 
-  // console.log(require('util').inspect(err instanceof NotificationError, false, null, true))
-  
-
   if (err.name === 'ValidationError') {
     status = 400
   }
@@ -42,8 +39,7 @@ app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
   
   return res.status(status).json({
     success: false,
-    payload: {
-      err
-    }
+    message: err.message,
+    trace: err.stack
   })
 })

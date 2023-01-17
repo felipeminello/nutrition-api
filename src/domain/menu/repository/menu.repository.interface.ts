@@ -4,5 +4,5 @@ export default interface MenuRepositoryInterface {
   create(entity: Menu): Promise<string>;
   update(entity: Menu): Promise<void>;
   find(id: string): Promise<Menu>;
-  findAll(): Promise<Menu[]>;
+  findByDateRange(startAt: Date, endAt: Date): Promise<Menu[]>;
 }

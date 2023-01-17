@@ -20,7 +20,7 @@ export default class MenuCreateUseCase {
         mealId: meal.id,
         name: meal.name,
         order: mealItem.order,
-        totalCalories: () => 0
+        totalCalories: () => meal.totalCalories()
       }
     }))
 

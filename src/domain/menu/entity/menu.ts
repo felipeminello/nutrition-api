@@ -30,6 +30,7 @@ export default class Menu implements MenuInterface {
   }
 
   public totalCalories(): number {
-    return this.meals.reduce((acc, item) => acc + (item.totalCalories() * item.totalCalories()), 0)
+    throw new Error('Method not implemented.')
+    // return this.meals.reduce((acc, item) => acc + (item.totalCalories() * item.totalCalories()), 0)
   }
 }

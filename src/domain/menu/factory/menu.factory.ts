@@ -11,7 +11,7 @@ interface MenuFactoryProps {
   updatedAt?: Date
 }
 
-export default class MealFactory {
+export default class MenuFactory {
   public static create(menu: MenuFactoryProps): Menu {
     const now = new Date()
 
