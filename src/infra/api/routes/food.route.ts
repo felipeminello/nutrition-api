@@ -11,8 +11,8 @@ foodRouter.post('/', async (req: Request, res: Response, next: NextFunction) => 
 
     const foodDto = {
       name: req.body.name,
-      unit: req.body.unit,
-      quantity: req.body.quantity,
+      code: req.body.code,
+      preparationCode: req.body.preparationCode,
       calories: req.body.kcal,
       protein: req.body.protein,
       fat: req.body.fat,
@@ -32,13 +32,13 @@ foodRouter.post('/', async (req: Request, res: Response, next: NextFunction) => 
   }
 })
 
-foodRouter.get('/', async (_: Request, res: Response, next: NextFunction) => {
+foodRouter.get('/', (req: Request, res: Response, next: NextFunction) => {
   const useCase = new FoodListUseCase(new FoodRepository())
 
-  try {
-    const output = await useCase.execute()
-    res.send(output)
-  } catch (err) {
-    next(err)
-  }
+  const page = req.query.page ? +req.query.page : undefined
+  const itemsPerPage = req.query.itemsPerPage ? +req.query.itemsPerPage : undefined
+  
+  useCase.execute({ page, itemsPerPage })
+    .then(output => res.send(output))
+    .catch(next)
 })

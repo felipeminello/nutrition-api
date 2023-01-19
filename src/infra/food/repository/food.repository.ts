@@ -14,8 +14,6 @@ export default class FoodRepository implements FoodRepositoryInterface {
   async create(input: Food): Promise<string> {
     const food = await this.foodSchema.create({
       name: input.name,
-      unit: input.unit,
-      quantity: input.quantity,
       calories: input.calories,
       protein: input.protein,
       fat: input.fat,
@@ -37,12 +35,13 @@ export default class FoodRepository implements FoodRepositoryInterface {
     }, {
       $set: {
         name: input.name,
-        unit: input.unit,
-        quantity: input.quantity,
+        code: input.code,
+        preparationCode: input.preparationCode,
         carbs: input.carbs,
         protein: input.protein,
         fat: input.fat,
-        calories: input.calories
+        calories: input.calories,
+        fiber: input.fiber
       }
     })
   }
@@ -54,12 +53,14 @@ export default class FoodRepository implements FoodRepositoryInterface {
       throw new Error('Food not found')
     }
 
-    return FoodFactory.create(food.id, food.name, food.unit, food.quantity, food.calories, food.protein, food.fat, food.carbs, food.fiber, food.chol, food.ashes, food.calcium, food.magnesium, food.humidity, food.createdAt, food.updatedAt)
+    return FoodFactory.create(food.id, food.code, food.name, food.preparationCode, food.calories, food.protein, food.fat, food.carbs, food.fiber, food.chol, food.ashes, food.calcium, food.magnesium, food.humidity, food.createdAt, food.updatedAt)
   }
 
-  async findAll(): Promise<Food[]> {
+  async findAll(page: number, itemsPerPage: number): Promise<Food[]> {
     const foods = await this.foodSchema.find()
+      .skip( page > 0 ? ( ( page - 1 ) * itemsPerPage ) : 0 )
+      .limit( itemsPerPage )
 
-    return foods.map(food => FoodFactory.create(food.id, food.name, food.unit, food.quantity, food.calories, food.protein, food.fat, food.carbs, food.fiber, food.chol, food.ashes, food.calcium, food.magnesium, food.humidity, food.createdAt, food.updatedAt))
+    return foods.map(food => FoodFactory.create(food.id, food.code, food.name, food.preparationCode, food.calories, food.protein, food.fat, food.carbs, food.fiber, food.chol, food.ashes, food.calcium, food.magnesium, food.humidity, food.createdAt, food.updatedAt))
   }
 }

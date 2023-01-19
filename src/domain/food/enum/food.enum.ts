@@ -1,0 +1,17 @@
+export enum PreparationCode {
+  CRU = 1,
+  COZIDO = 2,
+  GRELHADO = 3,
+  ASSADO = 4,
+  FRITO = 5,
+  EMPANADO = 6,
+  REFOGADO = 7,
+  MOLHO_VERMELHO = 8,
+  MOLHO_BRANCO = 9,
+  AO_ALHO_E_OLEO = 10,
+  COM_MANTEIGA = 11,
+  AO_VINAGRETE = 12,
+  ENSOPADO = 13,
+  MINGAU = 14,
+  SOPA = 15
+}

@@ -30,5 +30,5 @@ menuRouter.get('/', (req: Request, res: Response, next: NextFunction) => {
   useCase.execute({
     startDate: req.query.startDate as string,
     endDate: req.query.endDate as string
-  }).then(res.send).catch(next)
+  }).then(resp => res.send(resp)).catch(next)
 })

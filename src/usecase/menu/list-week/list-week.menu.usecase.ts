@@ -13,9 +13,6 @@ export default class MenuListUseCase {
     const startAt = new Date(input.startDate)
     const endAt = new Date(input.endDate)
 
-    console.log('startAt', startAt)
-    console.log('endAt', endAt)
-
     const menus = await this.menuRepository.findByDateRange(startAt, endAt)
 
     if (!menus.length) {

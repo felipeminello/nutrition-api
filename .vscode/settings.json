@@ -1,5 +1,9 @@
 {
   "window.title": "${dirty}${activeEditorShort}${separator}Nutrition ${separator} API ${separator}${appName}",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "eslint.validate": ["typescript"],
   "cSpell.words": [
     "chol",
     "pino",

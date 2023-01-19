@@ -1,21 +1,22 @@
 import Food from '@/domain/food/entity/food'
+import { PreparationCode } from '../enum/food.enum'
 
 export default class FoodFactory {
   public static create(
-    id: string | null,
+    id: string | null, 
+    code: number,
     name: string,
-    unit: string,
-    quantity: number,
+    preparationCode: PreparationCode | undefined,
     calories: number,
     protein: number,
     fat: number,
     carbs: number,
     fiber: number,
-    chol: number,
-    ashes: number,
-    calcium: number,
-    magnesium: number,
-    humidity: number,
+    chol: number | undefined,
+    ashes: number | undefined,
+    calcium: number | undefined,
+    magnesium: number | undefined,
+    humidity: number | undefined,
     createdAt?: Date,
     updatedAt?: Date
   ): Food {
@@ -23,6 +24,6 @@ export default class FoodFactory {
     createdAt = createdAt || now
     updatedAt = updatedAt || now
 
-    return new Food(id, name, unit, quantity, calories, protein, fat, carbs, fiber, chol, ashes, calcium, magnesium, humidity, createdAt, updatedAt)
+    return new Food(id, code, name, preparationCode, calories, protein, fat, carbs, fiber, chol, ashes, calcium, magnesium, humidity, createdAt, updatedAt)
   }
 }

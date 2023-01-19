@@ -20,7 +20,7 @@ export default class MealCreateUseCase {
         foodId: food.id,
         name: food.name,
         quantity: item.quantity,
-        calories: food.calories / food.quantity * item.quantity,
+        calories: food.calories / 100 * item.quantity,
       }
     }))
 

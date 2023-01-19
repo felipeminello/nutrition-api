@@ -9,7 +9,9 @@
     "build": "tsc",
     "start": "node ./dist/infra/api/server.js",
     "start:dev": "ts-node-dev -r tsconfig-paths/register ./src/infra/api/server.ts",
-    "test": "jest"
+    "test": "jest",
+    "taco:import": "node ./src/infra/cli/import-taco.js",
+    "taco:persist": "node ./src/infra/cli/persist-taco.js"
   },
   "devDependencies": {
     "@types/cors": "^2.8.12",
@@ -31,9 +33,11 @@
   },
   "dependencies": {
     "cors": "^2.8.5",
+    "csv-parse": "^5.3.3",
     "express": "^4.18.1",
     "mongoose": "^6.5.0",
     "pino": "^8.3.1",
-    "pino-http": "^8.2.0"
+    "pino-http": "^8.2.0",
+    "xlsx": "^0.18.5"
   }
 }
